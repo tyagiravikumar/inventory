@@ -1,0 +1,41 @@
+{
+    "product" :[{
+        "id":1
+        ,"name":"Pipe"
+        ,"purchase_prc" :10
+        ,"sell_prc":12
+        ,"unit":100
+        ,"sgst":14
+        ,"cgst":14
+    } ,{
+        "id":2
+        ,"name":"Nail"
+        ,"purchase_prc" :3
+        ,"sell_prc":5
+        ,"unit":1000
+        ,"sgst":7
+        ,"cgst":7
+    } ,{
+        "id":3
+        ,"name":"Switch"
+        ,"purchase_prc" :5
+        ,"sell_prc":6
+        ,"unit":800
+        ,"sgst":14
+        ,"cgst":14  }      
+    ],
+    "receipt" :[{
+        "id":1
+        ,"customer_name":"Ravi"
+        ,"address" :"106 MILL GROVE DR"
+        ,"discount":10
+        ,"product" : [{
+               "id":1
+               ,"name":"Switch"
+               ,"sell_price":10
+               ,"unit":10
+           }]
+        ,"sgst":14
+        ,"cgst":14
+    }]
+}

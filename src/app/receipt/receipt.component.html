@@ -1,0 +1,130 @@
+<div class="form" style="padding: 20px">
+
+  <table>
+      <tr>
+        <td style="width:30%">
+            <md-input-container >
+                <input mdInput placeholder="Invoice Number" disabled value={{this.rec.receiptno}}>
+              </md-input-container>
+        </td>
+        <td style="width:20%">
+          <md-input-container >
+              <input mdInput [mdDatepicker]="picker" placeholder="mm/dd/yyyy" [(ngModel)] = "this.rec.date" >
+              <md-datepicker #picker></md-datepicker>
+             </md-input-container>
+      </td>
+      <td style="width:10%">
+          
+              <button  md-mini-fab (click)="picker.open()"> <md-icon> today </md-icon></button>
+             
+      </td>              
+       <td style="width:40%" >
+          GST NO-07BCEPT4380HZC <br/><br/>
+          <strong> Tyagi Hardware & Sanitery Store </strong> <br/>
+          KH-530-531 Gurudwara Road Block D, Rajiv Nagar, Village Bhalswa, Delhi
+        </td>
+      </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+      <td><md-input-container class="example-full-width">
+        <input mdInput placeholder="Customer Name" [(ngModel)] = "this.rec.cust_name" >
+      </md-input-container></td>
+      <td><md-input-container class="example-full-width">
+        <input mdInput placeholder="Address" [(ngModel)] = "this.rec.address"  >
+      </md-input-container></td>
+    </tr>
+  </table>
+  <br/>
+  <br/>
+  <md-divider></md-divider>
+  <md-divider></md-divider>
+  <md-divider></md-divider>
+  <md-divider></md-divider>
+  <md-divider></md-divider>
+  <br/>
+  <br/>
+
+  
+  <button type="submit"  md-mini-fab  (click)="onAddProduct($event)" ><md-icon>add</md-icon></button>
+  Product 
+  
+  <table>
+    <tr>
+      <td style="width: 90%">
+          <div *ngFor="let product of rec.product;">
+              <table class="example-full-width" cellspacing="0"><tr>
+                  <td><md-input-container class="example-full-width">
+                    <input mdInput placeholder="SN#" [value]="product.id">
+                  </md-input-container></td>
+                
+
+                  <td><md-input-container class="example-full-width">
+                          <input mdInput   placeholder="Product" 
+                              [mdAutocomplete]="auto" [formControl]="productCtrl" (blur)="onBlurProduct(product,productCtrl)" >
+                        </md-input-container>
+                        
+                        <md-autocomplete #auto="mdAutocomplete">
+                          <md-option  *ngFor="let p of filteredProducts | async" [value]="p.name" (onSelectionChange)="onProductSelect(product, p)"  >
+                            {{ p.name }}
+                          </md-option>
+                        </md-autocomplete>
+                  </td>
+                  <td><md-input-container class="example-full-width">
+                      <input mdInput placeholder="Price (Per Unit)" [(ngModel)] ="product.sell_prc" >
+                    </md-input-container>
+                  </td>
+                  <td><md-input-container class="example-full-width">
+                        <input mdInput placeholder="Unit" [(ngModel)] = "product.unit" (keyup)="onunitchange(product, $event)">
+                      </md-input-container>
+                  </td>
+                  <td><md-input-container class="example-full-width">
+                          <input mdInput placeholder="Amount" [(ngModel)] = "product.amount">
+                        </md-input-container>
+                  </td>
+                  <td style="padding: 20px">
+                      <button  type="submit"  md-mini-fab  (click)="ondeleteProduct(product)" ><md-icon>delete</md-icon></button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+      </td>
+
+
+    </tr>
+
+  </table>
+  <br/>
+  <br/>
+
+  <md-divider md-inset></md-divider>
+  <md-divider md-inset></md-divider>
+  <md-divider md-inset></md-divider>
+  <md-divider md-inset></md-divider>
+
+  <br/>
+  <br/>
+  <table class="example-full-width" cellspacing="0"><tr>
+      <td><md-input-container class="example-full-width">
+        <input mdInput placeholder="Discount" [(ngModel)] = "rec.discount">
+      </md-input-container></td>
+      <td><md-input-container class="example-full-width">
+        <input mdInput placeholder="SGST (14%)" [(ngModel)] = "sgst">
+      </md-input-container></td>
+      <td><md-input-container class="example-full-width">
+        <input mdInput #postalCode maxlength="5" placeholder="CGST (14%)" [(ngModel)] = "cgst" >
+      </md-input-container></td>
+      <td><md-input-container class="example-full-width">
+          <input mdInput #postalCode maxlength="5" placeholder="Total" [(ngModel)] = "TotalAmount">
+        </md-input-container></td>
+
+        <td style="padding-left: 20px">
+          
+              <button  type="submit"  md-mini-fab  (click)="saveandprint()"  ><md-icon>print</md-icon></button>
+              <button type="submit"  md-mini-fab  (click)="openDialog()" ><md-icon>print</md-icon></button>        
+        </td>
+
+    </tr></table>
+  
+
+  </div>

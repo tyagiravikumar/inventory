@@ -1,0 +1,52 @@
+
+
+    <div class="form" style="padding: 20px">
+
+
+        <table>
+            <tr>
+                <td>
+                    <div>
+                    </div>
+                      
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <div class="example-container mat-elevation-z8 fullwidth">
+                            <md-table #table [dataSource]="productdatasource">
+                                   <ng-container cdkColumnDef="id">
+                                    <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
+                                    <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
+                                    </ng-container>
+                                      <ng-container cdkColumnDef="name">
+                                        <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
+                                        <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+                                        </ng-container>
+                              
+                                  <ng-container cdkColumnDef="unit">
+                                      <md-header-cell *cdkHeaderCellDef>Unit </md-header-cell>
+                                      <md-cell *cdkCellDef="let row"> {{row.unit}} </md-cell>
+                                  </ng-container>
+                            
+                                  <ng-container cdkColumnDef="price">
+                                      <md-header-cell *cdkHeaderCellDef>Price </md-header-cell>
+                                      <md-cell *cdkCellDef="let row"> {{row.price}} </md-cell>
+                                  </ng-container>
+                            
+                                  <ng-container cdkColumnDef="tax">
+                                      <md-header-cell *cdkHeaderCellDef> Tax </md-header-cell>
+                                      <md-cell *cdkCellDef="let row"> {{row.tax}} </md-cell>
+                                  </ng-container>
+                                  <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+                                  <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+                                </md-table>
+                         </div>
+
+                </td>
+            </tr>
+        </table>
+
+
+
+</div>    

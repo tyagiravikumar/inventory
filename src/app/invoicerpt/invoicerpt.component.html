@@ -1,0 +1,34 @@
+<div class="form" style="padding-left:20px">
+
+  <md-table #table [dataSource]="dataSource" mdSort>
+        <!-- Number Column -->
+        <ng-container cdkColumnDef="id" style="width:20px">
+            <md-header-cell *cdkHeaderCellDef> Id </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
+        </ng-container>
+        <ng-container cdkColumnDef="name" style="width:50px">
+            <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+        </ng-container>
+        <ng-container cdkColumnDef="date" style="width:50px">
+            <md-header-cell *cdkHeaderCellDef> Date </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.date}} </md-cell>
+        </ng-container>
+        <ng-container cdkColumnDef="address" style="width:150px">
+            <md-header-cell *cdkHeaderCellDef> Address </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.address}} </md-cell>
+        </ng-container>
+        <ng-container cdkColumnDef="cgst" style="width:20px">
+            <md-header-cell *cdkHeaderCellDef> CGST </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.cgst}} </md-cell>
+        </ng-container>
+        <ng-container cdkColumnDef="sgst" style="width:20px">
+            <md-header-cell *cdkHeaderCellDef> SGST </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.sgst}} </md-cell>
+        </ng-container>
+
+          <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+          <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table> 
+
+</div>

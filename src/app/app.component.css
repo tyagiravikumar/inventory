@@ -1,0 +1,15 @@
+.my-content {
+    display: flex;  
+    margin: 0;
+    height: 650px;
+
+  }
+  md-sidenav-layout {
+    background: rgba(48, 169, 41, 0.03);
+  }
+  .sidenav {
+    width: 300px;
+  }
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }

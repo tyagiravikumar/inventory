@@ -1,5 +1,43 @@
-<div class="form" style="padding: 20px">
-  <div *ngFor="let r of receipts;">
-    {{r.id}}
+<div class="form" style="padding-left:20px">
+  
+    <md-table #table [dataSource]="dataSource" >
+          <!-- Number Column -->
+          <ng-container cdkColumnDef="id" style="width:20px">
+              <md-header-cell *cdkHeaderCellDef> Id </md-header-cell>
+              <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
+          </ng-container>
+          <ng-container cdkColumnDef="name" style="width:50px">
+              <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
+              <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+          </ng-container>
+          <ng-container cdkColumnDef="number" style="width:50px">
+              <md-header-cell *cdkHeaderCellDef> Receipt Number </md-header-cell>
+              <md-cell *cdkCellDef="let row"> {{row.number}} </md-cell>
+          </ng-container>
+          <ng-container cdkColumnDef="address" style="width:150px">
+              <md-header-cell *cdkHeaderCellDef> Address </md-header-cell>
+              <md-cell *cdkCellDef="let row"> {{row.address}} </md-cell>
+          </ng-container>
+          <ng-container cdkColumnDef="date" style="width:20px">
+              <md-header-cell *cdkHeaderCellDef> Date </md-header-cell>
+              <md-cell *cdkCellDef="let row"> {{row.date | date}} </md-cell>
+          </ng-container>
+          <ng-container cdkColumnDef="discount" style="width:20px">
+              <md-header-cell *cdkHeaderCellDef> Discount </md-header-cell>
+              <md-cell *cdkCellDef="let row"> {{row.discount}} </md-cell>
+          </ng-container>
+
+          <ng-container cdkColumnDef="actions">
+            <md-header-cell *cdkHeaderCellDef> Actions </md-header-cell>
+            <md-cell *cdkCellDef="let row" >
+                <button ><md-icon>delete</md-icon></button  >
+                 
+            </md-cell>
+        </ng-container> 
+
+            <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+            <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table> 
+  
   </div>
-</div>
+  

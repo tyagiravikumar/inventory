@@ -1,0 +1,22 @@
+.mat-table {
+    overflow: auto;
+  }
+  
+  .mat-column-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  /* Column Widths */
+  .mat-column-number,
+  .mat-column-state,
+  .mat-column-commentCount {
+    max-width: 500px;
+  }
+  .mat-header-cell{
+      width: 200px;
+  }
+  
+  

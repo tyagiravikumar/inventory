@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 
-@Component({
+@Component({  
   selector: 'app-invoicerpt',
   templateUrl: './invoicerpt.component.html',
   styleUrls: ['./invoicerpt.component.css']
@@ -17,13 +17,13 @@ import 'rxjs/add/observable/merge';
 export class InvoicerptComponent {
 
   displayedColumns = ['id','name',  'date',  'address',  'sgst',  'cgst'];
-  exampleDatabase: InvoicerptDatabase | null;
+  invoiceDatabase: InvoicerptDatabase | null;
   dataSource: invoiceDataSource | null;
 
 
   constructor(http: Http) {
-    this.exampleDatabase = new InvoicerptDatabase(http);
-    this.dataSource = new invoiceDataSource(this.exampleDatabase);
+    this.invoiceDatabase = new InvoicerptDatabase(http);
+    this.dataSource = new invoiceDataSource(this.invoiceDatabase);
   }
 }
 export class InvoicerptDatabase  {
@@ -42,11 +42,11 @@ export class InvoicerptDatabase  {
      return result.json().map(i=> {
         return {
           id:i.id,
-          name:i.name,
-          number:i.number,
-          address:i.address,
-          cgst:i.cgst,
-          sgst:i.sgst
+          name:i.invoice.name,
+          number:i.invoice.number,
+          address:i.invoice.address,
+          cgst:i.invoice.cgst,
+          sgst:i.invoice.sgst
         }
      });
    }

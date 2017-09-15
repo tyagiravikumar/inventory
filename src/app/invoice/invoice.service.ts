@@ -27,7 +27,9 @@ export class InvoiceService {
                         if (n.id == e.sn){
                             n.unit = Number(n.unit) + Number(e.unit);
                             n.purchase_prc = e.purchase_prc;
-                            n.sell_prc = e.purchase_prc * 1.1;
+                            n.sell_prc = e.sell_prc;
+                            n.sgst = e.sgst;
+                            n.cgst= e.cgst;
                             this.prod.update(n).catch(this.handleError);
                         }
                     });

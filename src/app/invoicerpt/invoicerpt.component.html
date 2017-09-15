@@ -14,18 +14,40 @@
             <md-header-cell *cdkHeaderCellDef> Date </md-header-cell>
             <md-cell *cdkCellDef="let row"> {{row.date}} </md-cell>
         </ng-container>
-        <ng-container cdkColumnDef="address" style="width:150px">
-            <md-header-cell *cdkHeaderCellDef> Address </md-header-cell>
-            <md-cell *cdkCellDef="let row"> {{row.address}} </md-cell>
+
+        <ng-container cdkColumnDef="number" style="width:150px">
+            <md-header-cell *cdkHeaderCellDef> Bill Number </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.number}} </md-cell>
         </ng-container>
+
+        <ng-container cdkColumnDef="amount" style="width:150px">
+            <md-header-cell *cdkHeaderCellDef> Amount </md-header-cell>
+            <md-cell *cdkCellDef="let row" > <label >{{row.amount}}</label>  </md-cell>
+        </ng-container>
+
         <ng-container cdkColumnDef="cgst" style="width:20px">
             <md-header-cell *cdkHeaderCellDef> CGST </md-header-cell>
-            <md-cell *cdkCellDef="let row"> {{row.cgst}} </md-cell>
+            <md-cell *cdkCellDef="let row" >  {{row.cgst}} </md-cell>
         </ng-container>
+
         <ng-container cdkColumnDef="sgst" style="width:20px">
             <md-header-cell *cdkHeaderCellDef> SGST </md-header-cell>
             <md-cell *cdkCellDef="let row"> {{row.sgst}} </md-cell>
         </ng-container>
+
+        <ng-container cdkColumnDef="total" style="width:20px">
+            <md-header-cell *cdkHeaderCellDef> Total  </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.total | number: '1.2-2'}} </md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="actions">
+            <md-header-cell *cdkHeaderCellDef> Actions </md-header-cell>
+            <md-cell *cdkCellDef="let row" >
+                <button md-icon-button color="warn" (click)="delete(row)">
+                        <md-icon class="md-24">clear</md-icon>
+                </button>
+            </md-cell>
+        </ng-container> 
 
           <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
           <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
